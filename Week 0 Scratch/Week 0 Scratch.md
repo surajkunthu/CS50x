@@ -17,7 +17,7 @@ Using computers to solve problems
 1 - pass electricity through transistors (a switch)
 
 <span style="color:red"> Binary to Decimal Formula: </span>
-*Considering $d_n$ to be the digits of a binary number consisting of ‘n’ digts*
+*Considering* $d_n$ *to be the digits of a binary number consisting of `n` digts*
 
 *Decimal Number* = $(d_0 * 2^0) + (d_1 * 2^1) + (d_2 * 2^2) + ... + (d_{n-1} * 2^{n-1})$
 *where* $d_0, d_1, d_2$ *are the individual digits of the binary number starting from the right most position*
