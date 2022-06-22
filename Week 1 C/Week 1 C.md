@@ -166,3 +166,75 @@ $ ./hello
 What's your name? Suraj
 hello, Suraj
 ```
+
+```c
+printf("hello, world");
+printf("hello, %s\n", answer);
+```
+
+<details>
+<summary>
+How many inputs are in each `printf()` function?
+</summary>
+
+- Top line = 1 -- `hello, world`
+- Bottom line = 2 -- `hello, %s\n` and `answer`
+</details>
+
+
+The below code will also work.
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    printf("hello, %s\n", get_string("What's your name? "));
+}
+```
+<details>
+<summary>
+Is the better designed or worse?
+</summary>
+
+- Worse
+- Harder to read from top to bottom
+- Cannot iterate code, `printf()` will ONLY take strings in this case
+</details>
+
+> arguments &rarr; functions &rarr; return value
+
+## C Basics
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+
+}
+```
+- `#include <stdio.h>` is a header file that loads the library `<stdio.h>`
+    - in `C`, by default, there is no data type `string`. We load `<stdio.h>` to allow for `strings`
+- `int main(void)` is to the initialze the program
+- `{ }` anything within the curly braces is the code/program
+
+
+## Linux terminal commands
+```bash
+cd - change directory
+
+cp - copy
+
+ls - list
+
+mkdir - make directory
+
+mv - move
+
+rm - remove
+
+rmdir - remove directory
+```
+
+`ctrl` + `L` or type `clear` in the terminal to clear terminal window
