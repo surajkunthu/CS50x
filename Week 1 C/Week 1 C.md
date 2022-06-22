@@ -154,7 +154,7 @@ hello, answer
 int main(void)
 {
     string answer = get_string("What's your name? ");
-    printf("hello, %s\n", answer");
+    printf("hello, %s\n", answer);
 }
 ```
  - `%s` - placeholder, format code. "Put a string here eventually." In this case it will look for the next available string value, which is `answer`.
@@ -166,5 +166,3 @@ $ ./hello
 What's your name? Suraj
 hello, Suraj
 ```
-
-40:00
