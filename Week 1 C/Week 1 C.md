@@ -235,6 +235,37 @@ mv - move
 rm - remove
 
 rmdir - remove directory
+
+. - this directory
+
+.. - parent directory
 ```
 
 `ctrl` + `L` or type `clear` in the terminal to clear terminal window
+
+```bash
+$ mkdir pset1
+$ mkdir pset2
+$ ls
+hello* hello.c pset1/ pset2/
+$ cd pset1
+pset1/ $ ls
+pset1/ $ mkdir mario
+pset1/ $ ls
+mario/
+pset1/ $ cd mario/
+pset1/mario/ $ code mario.c
+
+pset1/mario/ $ cd ..
+pset1/ $ cd mario/
+pset1/mario/ $ ls
+mario.c
+pset1/mario/ $ cd ../..
+$ cd pset1/mario/
+pset1/mario/ $ cd
+$ ./hello
+```
+
+58:00
+
+
