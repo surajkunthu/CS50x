@@ -115,6 +115,8 @@ string answer = get_string("What is your name? ");
 
 
 ### Applying functions, arguments in C
+Example: [Hello World](hello.c)
+
 ```C
 #include <stdio.h>
 
@@ -266,6 +268,181 @@ pset1/mario/ $ cd
 $ ./hello
 ```
 
-58:00
+## Types
+
+In C, data types are:
+- boo
+- char
+- double
+- float
+- int
+- long
+- string
+- ...
+
+CS50 functions
+- get_char
+- get_double
+- get_float
+- get_int
+- get_long
+- get_string
+- ...
+
+Represent in code
+- %c - char
+- %f - float
+- %i - int
+- %li - long integer
+- $s - string
+
+Operators
+- "+"
+- "-"
+- "*"
+- "/"
+- "%"
+
+Variables, syntactic sugar
+```c
+int counter = 0;
+```
+These three forms for incrementing by 1 are the same
+```c
+counter = counter + 1;
+counter += 1;
+counter++;
+```
+
+### Examples
+[Calculator.c](calculator.c)
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int x = get_int("x: ");
+    int y = get_int("y: ");
+    printf("%i\n", x + y);
+}
+```
+
+What if we added `int z` and replaced `x + y`?
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int x = get_int("x: ");
+    int y = get_int("y: ");
+    int z = x + y;
+    printf("%i\n", z);
+}
+```
+Is this better designed than the previous code snippet?
+- Depends on the complexity of the problem.
+- In this case, it's pretty easy to understand what's going on.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    int first_number = get_int("x: ");
+
+    //Prompt user for y
+    int second_number = get_int("y: ");
+
+    //Perform addition
+    printf("%i\n", first_number + second_number);
+}
+```
+Style-wise, comments and better defined variables help understand the code better for you and anyone else who reads the code.
+
+```bash
+$ make calculator
+$ ./calculator
+x: 1000000000
+y: 1000000000
+2000000000
+$ ./calculator
+x: 2000000000
+y: 2000000000
+-29496
+```
+<details>
+<summary>Why is the program incorrect? The math works out just fine. </summary>
+
+- Most PCs support 32 bits for `ints`
+- 32 bits is 4 billion integers
+- However, 4 billion total including negative so 2 billion positive and 2 billion negative.
+</details>
 
 
+<details>
+<summary>What's the solution to fix this problem? </summary>
+
+- Change `int` to `long`
+- Change `get_int` to `get_long`
+- Change `%i` to `%li`
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    long x = get_long("x: ");
+
+    //Prompt user for y
+    long y = get_long("y: ");
+
+    //Perform addition
+    printf("%li\n", x + y);
+}
+```
+
+```bash
+$ make calculator
+$ ./calculator
+x: 2000000000
+y: 2000000000
+4000000000
+```
+</details>
+
+## Conditionals
+```c
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else
+{
+    printf("x is equal to y\n");
+}
+```
+
+Example: [Points.c](points.c)
+
+`const` - Tells compiler that this variable will NEVER change.
+
+Example: [parity.c](parity.c)
+
+Example: [agree.c](agree.c)
+
+`''` single quotes for single characters `char`
+
+`""` double quotes for `string`
+
+1:36:00
