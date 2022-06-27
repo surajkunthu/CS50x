@@ -271,13 +271,13 @@ $ ./hello
 ## Types
 
 In C, data types are:
-- boo
-- char
-- double
-- float
-- int
-- long
-- string
+- bool - boolean (True/False)
+- char - single character
+- double - float with more digits
+- float - decimal value
+- int - integer
+- long - integer with more bits
+- string - string of characters
 - ...
 
 CS50 functions
@@ -301,7 +301,7 @@ Operators
 - "-"
 - "*"
 - "/"
-- "%"
+- "%" - remainder
 
 Variables, syntactic sugar
 ```c
@@ -445,4 +445,268 @@ Example: [agree.c](agree.c)
 
 `""` double quotes for `string`
 
-1:36:00
+## Loops
+
+Example: [meow.c](meow.c)
+
+Repeat "forever"
+```c
+while (true)
+{
+    printf("meow\n");
+}
+```
+
+Better design for implementation
+```c
+int counter = 0;
+while (counter < 3)
+{
+    printf("meow\n");
+    counter = counter + 1;
+}
+```
+Cleaned up and more conventional version
+```c
+int i = 0;
+while (i < 3)
+{
+    printf("meow\n");
+    i++;
+}
+```
+
+`For` Loop
+```c
+for (int i = 0; i < 3, i++)
+{
+    printf("meow\n");
+}
+```
+
+Let's update: [meow.c](meow.c)
+
+What happens if we make the function `meow()` and then move it to the bottom of the code?
+```c
+#include <stdio.h>
+
+
+int main(void)
+{
+   for (int i = 0; i < 3; i++)
+   {
+        meow();
+   }
+}
+
+void meow(void)
+{
+    printf("meow\n");
+}
+```
+Error
+```bash
+$ make meow
+meow.c:8:9: error: implicit declaration of function 'meow' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        meow();
+        ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+2 errors generated.
+make: *** [<builtin>: meow] Error 1
+```
+C reads from top to bottom
+
+There is a workaround
+
+```c
+#include <stdio.h>
+
+void meow(void); // Call the function
+
+int main(void)
+{
+   for (int i = 0; i < 3; i++)
+   {
+        meow();
+   }
+}
+
+void meow(void)
+{
+    printf("meow\n");
+}
+```
+
+## Inputs
+Example: [discount.c](discount.c)
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+float discount(float price, int percentage);
+
+int main(void)
+{
+    float regular = get_float("Regular Price: ");
+    int percent_off = get_int("Percent Off: ");
+    float sale = discount(regular, percent_off);
+    printf("Sale Price: %.2f\n", sale);
+}
+
+float discount(float price, int percentage)
+{
+    return price * (100 - percentage) / 100;
+}
+```
+
+## Validating User Input
+Example: [mario.c](mario.c)
+
+## Floating Point Imprecision
+The inability for computers to precisely represent values
+
+
+Example: [calculator.c](calculator.c)
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    float x = get_float("x: ");
+
+    //Prompt user for y
+    float y = get_float("y: ");
+
+    // Divide x by y
+    float z = x / y;
+    
+    //Perform operation
+    printf("%.50f\n", z);
+}
+```
+This code yields an approximation
+```bash
+$ ./calculator
+x: 1
+y: 10
+0.10000000149011611938476562500000000000000000000000
+```
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    int x = get_int("x: ");
+
+    //Prompt user for y
+    int y = get_int("y: ");
+
+    // Divide x by y
+    float z = x / y;
+    
+    //Perform operation
+    printf("%.50f\n", z);
+}
+```
+This is a truncation
+```bash
+$ ./calculator
+x: 2
+y: 3
+0.00000000000000000000000000000000000000000000000000
+
+$ ./calculator
+x: 4
+y: 3
+1.00000000000000000000000000000000000000000000000000
+```
+## Integer Overflow
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Prompt user for x
+    int x = get_int("x: ");
+
+    //Prompt user for y
+    int y = get_int("y: ");
+
+    // Divide x by y
+    float z = (float) x / (float) y;
+    
+    //Perform operation
+    printf("%.50f\n", z);
+}
+```
+
+Now the value is closer to the right answer
+```bash
+$ ./calculator
+x: 2
+y: 3
+0.66666668653488159179687500000000000000000000000000
+```
+
+Y2K is a famous Integer Overflow event. Most PCs had only 2 bits for storing years
+
+1999 -> 99
+
+2000 -> 00 \
+this would be the same as the epoch of PCs keeping track of dates (1970)
+
+Example: [pennies.c](pennies.c)
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    float amount = get_float("Dollar amount: ");
+    int pennies = amount * 100;
+    printf("Pennies: %i\n", pennies);
+}
+```
+Float point imprecision at $4.20
+
+```bash
+$ ./pennies
+Dollar amount: .99
+Pennies: 99
+$ ./pennies
+Dollar amount: 1.23
+Pennies: 123
+$ ./pennies
+Dollar amount: 4.20
+Pennies: 419
+```
+
+
+use the `math.h` library and the `round()` function
+```c
+#include <cs50.h>
+#include <math.h>
+#include <stdio.h>
+
+int main(void)
+{
+    float amount = get_float("Dollar amount: ");
+    int pennies = round(amount * 100) ;
+    printf("Pennies: %i\n", pennies);
+}
+```
+
+```bash
+$ ./pennies
+Dollar amount: 4.20
+Pennies: 420
+```
