@@ -725,7 +725,7 @@ $$ -2^{31} <-- 0 --> 2^{31}-1 $$
 
 ## <span style= "color:lightblue"> unsigned </span> `int`
 - a _qualifier_ that can be applied to certain types (including `int`) which doubles the positive range of variables, no longer can use negative values
-- Unassigned integer storage range: 
+- Unsigned integer storage range: 
 $$ 0 <---> 2^{32}-1 $$
 
 ## `char`
