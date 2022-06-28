@@ -710,3 +710,92 @@ $ ./pennies
 Dollar amount: 4.20
 Pennies: 420
 ```
+
+# Data Types
+Modern languages don't need data types to be declared.
+
+In C, we need to declare data types
+
+## `int` 
+Integer
+- Data type for variables that will store integers
+- 4 bytes of memory (32 bits)
+- Integer storage range: 
+$$ -2^{31} <-- 0 --> 2^{31}-1 $$
+
+## <span style= "color:lightblue"> unsigned </span> `int`
+- a _qualifier_ that can be applied to certain types (including `int`) which doubles the positive range of variables, no longer can use negative values
+- Unassigned integer storage range: 
+$$ 0 <---> 2^{32}-1 $$
+
+## `char`
+character
+- Stores single characters
+- 1 byte of memory (8 bits)
+- ASCII is a standard for representation
+- `char` storage range: 
+$$ -128 <-- 0 --> 127 $$
+
+## `float`
+floating-point value
+- stores floating-point values, aka _real numbers_.
+- 4 bytes of memory (32 bits)
+- Difficuly to describe the range of `float`, limited in how _precise_ we can be
+
+## `double`
+- stores floating-point values, aka _real numbers_.
+- _double precision_, much more precise than `float`
+- 8 bytes of memory (64 bits)
+
+## `void`
+- A type, not a _data type_
+- Functions can have a `void` return type which means they do not return a value
+- Parameter list of a functino can also be `void`, it means the function takes no parameters
+- placeholder for "nothing"
+
+## `bool`
+- Can only hold two distinct values:
+  - `true` or `false`
+- part of `#include <cs50.h>`
+
+## `string`
+- series of characters
+- words, sentences, paragraphs, etc...
+- part of `#include <cs50.h>`
+  
+## Creating a variable
+Specify a data type and give it a name
+```c
+int number;
+char letter;
+```
+
+For multiple variables of the same type, you must specify the type _once_ then list as many variables of that type
+```c
+int height, width;
+float sqrt2, sqrt3, pi;
+```
+It's good practive to only _declare_ variables when you need them
+
+## Using a variable
+After a variable has been declared, it's no longer necessary to specify that variable's type.
+```c
+int number;   // declaration
+number = 17;  // assignment
+char letter;  // declaration
+letter = 'H'; // assignment
+```
+We can simulataneously declare and set the value of a variable (sometimes called _initializing_)
+
+```c
+int number = 17;   // initialization
+char letter = 'H'; // initialization
+```
+
+# Operators
+
+# Conditional Statements
+
+# Loops
+
+# Command Line
