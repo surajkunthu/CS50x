@@ -999,5 +999,63 @@ int x = (expr) ? 5 : 6
 - : ___ <- if false
 
 # Loops
+## Forever/Infinite Loop
+```c
+while (true)
+{
+
+}
+```
+- _infinite loop_. Lines will execute repeatedlty from top to bottom, until and unles we break out of it (with a `break;` statement) or otherwise kill the program.
+
+## Forever Loop with conditional
+```c
+while (boolean-expr)
+{
+
+}
+```
+- if the `boolean-expr` evaluates to `true`, lines of code inbetween `{ }` will run repeatedly, until `boolean-expr` evaluates to `false`
+
+## Do-while loop
+```c
+do
+{
+
+}
+while (boolean-expr);
+```
+- will run all code within `{ }` once and then if the `boolean-expr` is `true`, it will go back and repeat the `do { }` UNTIL `boolean-expr` is `false`.
+
+## For loop
+```c
+for (int i = 0; i < 10; i++)
+{
+
+}
+
+// formula
+for (start; expr; increment)
+{
+
+}
+```
+- syntactically unattractive, but for loops repeat code a specified number of times
+- Counter variable(s) (here, `i`) is set
+- Boolean expression is checked
+    - If `true`, body of the loop executes
+    - If `false`, body of loop does not execute
+- Counter varaible is incremented and then boolean expression is checked again.
+
+## Use cases
+- `while`
+    - use when you want to loop an unknown number of times, and possibly not .at all
+    - example: games
+- `do-while`
+    - use when you want to loop an unknown number of times, but atleast once
+    - example: prompting user for an input
+- `for`
+    - when you want to loop a discrete number of times, although you many not know the number of times at the time of compiling
+    - example: iteration
 
 # Command Line
