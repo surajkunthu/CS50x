@@ -1059,3 +1059,74 @@ for (start; expr; increment)
     - example: iteration
 
 # Command Line
+## Using the Linux Command Line
+> CS50 IDE
+- cloud-based machine running _Ubuntu_ a Linux OS distribution
+- Many modern Linux distributions have graphical user interfaces (GUI)
+- The _terminal window_ is where we perform most of our tasks
+- These tasks can be used on any UNIX-based system
+
+`ctrl`+`L` to clear the _terminal window_
+
+## `ls`
+- list all files in a directory
+
+## `cd`
+```bash
+cd <directory>
+```
+- short for "change directory"
+- shorthand for current directory is `.`
+- shorthand for parent directory of current directoy is `..`
+
+## `pwd`
+- short for "present working directory"
+
+## `mkdir`
+```bash
+mkdir <directory>
+```
+- short for "make directory"
+
+## `cp`
+```bash
+cp <source> <destination>
+```
+- short for "copy", allows for duplication of a file from \<source> to \<destination>
+- you can also rename the copied file
+```bash
+cp hello.txt hi.txt
+```
+```bash
+cp -r <source directory> <destination directory>
+```
+- the `-r` flag stands for "recursive"
+- copy the entire directory
+
+## `rm`
+```bash
+rm <file>
+```
+- short for "remove", you will then be prompted to remove the file with a `y/n`
+```bash
+rm -f <file> "skips the confirmation"
+rm -r <directory> "deletes entire directory"
+rm -rf <directory> "deletes entire directory and skips confirmation"
+```
+
+## `mv`
+```bash
+mv <source> <destination>
+```
+- shorthand for "move", it will move a file but it is also used to rename files
+
+## Other commands
+- `chmod`
+- `rmdir`
+- `sudo`
+- `ln`
+- `man`
+- `clear`
+- `touch`
+- `diff`
+- `telnet`
