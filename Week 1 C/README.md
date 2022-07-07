@@ -793,8 +793,210 @@ char letter = 'H'; // initialization
 ```
 
 # Operators
+## Arithmetic Operators
+- +: add
+- -: subtract
+- *: multiply
+- /: divide
+```c
+int x = y + 1; // if y is 10, x is 11
+x = x * 5; // x is now 55
+```
+
+- %: modulus operator (remainder of left divided by right)
+```c
+int m = 13 % 4; // m is now 1
+```
+There is also a shorthand for arithmetic operators with a single  variable
+
+```c
+x = x * 5;
+x *= 5;
+```
+
+Incrementing or decrementing also has a shorthand
+```c
+x++;
+x--;
+```
+
+## Boolean Expressions
+- Expressions evaluate to one of two possible values -- `true` or `false`
+- sometimes we use varables of type `bool`
+- In C, _every_ nonzero value is equivalent to `true`, and zero is `false`
+- Two main types of Boolean expressions
+  - Logical operators
+  - Relational operators
+  
+### Logical Operators
+
+> **AND (&&)**, true if and only if both operands are true, otherwise false
+
+| x | y | (x && y) | 
+| --- | --- | --- |
+| true | true | true |
+| true | false | false |
+| false | true | false |
+| false | false | false |
+
+> **OR (||)**, true if and only if at least one operand is true, otherwise false
+
+| x | y | (x \|\| y) | 
+| --- | --- | --- |
+| true | true | true |
+| true | false | true |
+| false | true | true |
+| false | false | false |
+
+> **NOT (!)**, inverts the value of its operand. Sometimes referred to as Bang!
+> 
+| x | !x |
+| --- | --- |
+| true | false |
+| false | true |
+
+### Relational Operators
+- Less than (`x < y`)
+- Less than or equal to (`x <= y`)
+- Greater than (`x > y`)
+- Greater than or equal to (`x >= y`)
+- Equality (`x == y`)
+- Inequality (`x != y`)
 
 # Conditional Statements
+
+## if
+```c
+if (boolean-expression)
+{
+
+}
+```
+- If boolean-expression evalutes to `true`, all lines inbetween curly braces will execute from top-to-botoom
+- If `false`, those lines will not be executed
+
+## else
+```c
+if (boolean-expression)
+{
+
+}
+else
+{
+    
+}
+```
+- If boolean-expression evalutes to `true`, all lines inbetween first set of curly braces will execute from top-to-bottom
+- If `false`, all lines inbetween within `else` curly braces will execute from top-to-bottom
+
+## else if
+```c
+if (boolean-expr1)
+{
+    // first branch
+}
+else if (boolean-expr2)
+{
+    // second branch
+}
+else if (boolean-expr3)
+{
+    // third branch
+}
+else
+{
+    // fourth branch
+}
+```
+- In C, its possible to create an `if-else`, `if-else` chain
+- Each branch is mutually exclusive
+
+- it is possible to create a chain of non-mutually exclusive branches
+  
+```c
+if (boolean-expr1)
+{
+    // first branch
+}
+if (boolean-expr2)
+{
+    // second branch
+}
+if (boolean-expr3)
+{
+    // third branch
+}
+else
+{
+    // fourth branch
+}
+```
+- In this example, only third and fourth branches are mutually exclusive. The `else` binds to nearest `if` only.
+  
+## switch()
+```c
+#include <cs50.h>
+
+int x = GetInt();
+switch(x)
+{
+    case 1:
+        printf("One!\n");
+        break;
+    case 2:
+        printf("Two!\n");
+        break;
+    case 3:
+        printf("Three!\n");
+        break;
+    default:
+        printf("Sorry!\n");
+}
+```
+- C's `switch()` statement is a conditional statment that permits enumeration of discrete cases, instead of relying on Boolean expressions
+- Important to `break;` between each case or the code will "fall through" each case (unless that is desired)
+
+```c
+#include <cs50.h>
+
+int x = GetInt();
+switch(x)
+{
+    case 5:
+        printf("Five, ");
+    case 4:
+        printf("Four, ");
+    case 3:
+        printf("Three, ");
+    case 2:
+        printf("Two, ");
+    case 1:
+        printf("One, ");
+    default:
+        printf("Blast off!\n");
+}
+```
+- Here is an example where the desired outcome is to "fall through"
+
+## ternary operator ( ? : )
+```c
+if (expr)
+{
+    x = 5;
+}
+else
+{
+    x = 6;
+}
+```
+Is the same as:
+```c
+int x = (expr) ? 5 : 6
+```
+- the `ternary operator` is a "cute trick"
+- Useful for writing trivially short conditional branches
+- ? ___ <- if true
+- : ___ <- if false
 
 # Loops
 
