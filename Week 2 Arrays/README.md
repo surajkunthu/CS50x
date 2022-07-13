@@ -95,5 +95,91 @@ int main(void)
 4. Linking - Links all the 1s and 0s together into one file, `hello.c`
 
 ## Debugging
-22:40
+Techniques for Debugging:
 
+[buggy.c](https://github.com/code50/78098610/blob/main/Week2_code/buggy.c#L9)
+
+- As of right now, its printing 4 and not 3
+- Using `printf()` to see what's in the computer memory
+- `debug50`: debugger command that is automating the process of VScode's debugger
+```bash
+$ make buggy
+$ debug50 ./buggy
+```
+
+Talking through problems is a great debugging tool.
+- "Rubber duck"
+
+[buggy2.c](https://github.com/code50/78098610/blob/main/Week2_code/buggy2.c#L19)
+- "Step over" vs "Step into"
+- "step over": steps over functions
+- "step into": dives into functions
+
+## Types
+| Type | Bytes | Bits |
+| ---- | ---- | ---- |
+| `bool` | 1 byte | 8 bits |
+| `char` | 1 byte | 8 bits |
+| `double` | 8 bytes | 64 bits |
+| `float` | 4 bytes | 32 bits |
+| `int` | 4 bytes | 32 bits |
+| `long` | 8 bytes | 64 bits |
+| `string` | ? bytes | ? bits |
+
+RAM - Random Access Memory
+
+[scores.c](https://github.com/code50/78098610/blob/main/Week2_code/scores.c#L1)
+
+```bash
+Week2_code/ $ make scores
+scores.c:9:29: error: format specifies type 'double' but the argument has type 'int' [-Werror,-Wformat]
+    printf("average: %f\n", (score1 + score2 + score3) / 3);
+                     ~~     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                     %d
+1 error generated.
+make: *** [<builtin>: scores] Error 1
+```
+We get an error. It is a float result but int variables. So we need to address that.
+
+There is a way to store mulitple data of the same type in memory.
+
+## Arrays
+```c
+int scores[3];
+```
+This line of code declares an `int` array of size `3`.
+
+```c
+scores[0] = 72;
+scores[1] = 73;
+scores[2] = 33;
+```
+We are indexing into the scores array and assigning values.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int scores[3];
+
+    scores[0] = get_int("Scores: ");
+    scores[1] = get_int("Scores: ");
+    scores[2] = get_int("Scores: ");
+
+    printf("average: %f\n", (scores[0]+ scores[1]+ scores[2]) / 3.0);
+}
+```
+Although this works, we get "smelly code"
+
+Instead of indexing, we could use a `for loop`
+```c
+  for (int i = 0; i < 3; i++)
+    {
+        scores[i] = get_int("Score: ");
+    }
+```
+
+### Array of Characters
+1:01:17
