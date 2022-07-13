@@ -97,7 +97,7 @@ int main(void)
 ## Debugging
 Techniques for Debugging:
 
-[buggy.c](https://github.com/code50/78098610/blob/main/Week2_code/buggy.c#L9)
+[buggy.c](/Week%202%20Arrays/buggy.c)
 
 - As of right now, its printing 4 and not 3
 - Using `printf()` to see what's in the computer memory
@@ -110,7 +110,7 @@ $ debug50 ./buggy
 Talking through problems is a great debugging tool.
 - "Rubber duck"
 
-[buggy2.c](https://github.com/code50/78098610/blob/main/Week2_code/buggy2.c#L19)
+[buggy2.c](/Week%202%20Arrays/buggy2.c)
 - "Step over" vs "Step into"
 - "step over": steps over functions
 - "step into": dives into functions
@@ -128,7 +128,7 @@ Talking through problems is a great debugging tool.
 
 RAM - Random Access Memory
 
-[scores.c](https://github.com/code50/78098610/blob/main/Week2_code/scores.c#L1)
+[scores.c](/Week%202%20Arrays/scores.c)
 
 ```bash
 Week2_code/ $ make scores

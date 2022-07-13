@@ -21,7 +21,7 @@ Although this is _relatively_ easy to read to us humans, a computer will have tr
 
 We need an **Integrated Development Environment (IDE)** (such as Visual Studio Code!) to convert into binary (or machine code)
 
-[hello.c](https://github.com/code50/78098610/blob/main/Week1_code/hello.c#L8)
+[hello.c](/Week%201%20C/hello.c)
 
 source code &rarr; $\square$ &rarr; machine code
 
@@ -115,7 +115,7 @@ string answer = get_string("What is your name? ");
 
 
 ### Applying functions, arguments in C
-Example: [Hello](https://github.com/code50/78098610/blob/main/Week1_code/hello.c#L8)
+Example: [hello.c](/Week%201%20C/hello.c)
 
 ```C
 #include <stdio.h>
@@ -315,7 +315,7 @@ counter++;
 ```
 
 ### Examples
-[Calculator.c](https://github.com/code50/78098610/blob/main/Week1_code/calculator.c#L17)
+[Calculator.c](/Week%201%20C/calculator.c)
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -433,13 +433,13 @@ else
 }
 ```
 
-Example: [points.c](https://github.com/code50/78098610/blob/main/Week1_code/points.c#L1)
+Example: [points.c](/Week%201%20C/points.c)
 
 `const` - Tells compiler that this variable will NEVER change.
 
-Example: [parity.c](https://github.com/code50/78098610/blob/main/Week1_code/parity.c#L18)
+Example: [parity.c](/Week%201%20C/parity.c)
 
-Example: [agree.c](https://github.com/code50/78098610/blob/main/Week1_code/agree.c#L21)
+Example: [agree.c](/Week%201%20C/agree.c))
 
 `''` single quotes for single characters `char`
 
@@ -447,7 +447,7 @@ Example: [agree.c](https://github.com/code50/78098610/blob/main/Week1_code/agree
 
 ## Loops
 
-Example: [meow.c](https://github.com/code50/78098610/blob/main/Week1_code/meow.c#L9)
+Example: [meow.c](/Week%201%20C/meow.c)
 
 Repeat "forever"
 ```c
@@ -484,7 +484,7 @@ for (int i = 0; i < 3, i++)
 }
 ```
 
-Let's update: [meow.c](https://github.com/code50/78098610/blob/main/Week1_code/meow.c#L9)
+Let's update: [meow.c](/Week%201%20C/meow.c)
 
 What happens if we make the function `meow()` and then move it to the bottom of the code?
 ```c
@@ -538,7 +538,7 @@ void meow(void)
 ```
 
 ## Inputs
-Example: [discount.c](https://github.com/code50/78098610/blob/main/Week1_code/discount.c#L17)
+Example: [discount.c](/Week%201%20C/discount.c)
 
 ```c
 #include <cs50.h>
@@ -561,13 +561,13 @@ float discount(float price, int percentage)
 ```
 
 ## Validating User Input
-Example: [mario.c](https://github.com/code50/78098610/blob/main/Week1_code/mario.c#L13)
+Example: [mario.c](/Week%201%20C/mario.c)
 
 ## Floating Point Imprecision
 The inability for computers to precisely represent values
 
 
-Example: [calculator.c](https://github.com/code50/78098610/blob/main/Week1_code/calculator.c#L17)
+Example: [calculator.c](/Week%201%20C/calculator.c)
 
 ```c
 #include <cs50.h>
@@ -663,7 +663,7 @@ Y2K is a famous Integer Overflow event. Most PCs had only 2 bits for storing yea
 2000 -> 00 \
 this would be the same as the epoch of PCs keeping track of dates (1970)
 
-Example: [pennies.c](https://github.com/code50/78098610/blob/main/Week1_code/pennies.c#L10)
+Example: [pennies.c](/Week%201%20C/pennies.c)
 
 ```c
 #include <cs50.h>
