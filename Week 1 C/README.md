@@ -21,7 +21,7 @@ Although this is _relatively_ easy to read to us humans, a computer will have tr
 
 We need an **Integrated Development Environment (IDE)** (such as Visual Studio Code!) to convert into binary (or machine code)
 
-[hello.c](hello.c)
+[hello.c](https://github.com/code50/78098610/blob/main/Week1_code/hello.c#L8)
 
 source code &rarr; $\square$ &rarr; machine code
 
@@ -115,7 +115,7 @@ string answer = get_string("What is your name? ");
 
 
 ### Applying functions, arguments in C
-Example: [Hello World](hello.c)
+Example: [Hello](https://github.com/code50/78098610/blob/main/Week1_code/hello.c#L8)
 
 ```C
 #include <stdio.h>
@@ -315,7 +315,7 @@ counter++;
 ```
 
 ### Examples
-[Calculator.c](calculator.c)
+[Calculator.c](https://github.com/code50/78098610/blob/main/Week1_code/calculator.c#L17)
 ```c
 #include <cs50.h>
 #include <stdio.h>
@@ -433,13 +433,13 @@ else
 }
 ```
 
-Example: [Points.c](points.c)
+Example: [points.c](https://github.com/code50/78098610/blob/main/Week1_code/points.c#L1)
 
 `const` - Tells compiler that this variable will NEVER change.
 
-Example: [parity.c](parity.c)
+Example: [parity.c](https://github.com/code50/78098610/blob/main/Week1_code/parity.c#L18)
 
-Example: [agree.c](agree.c)
+Example: [agree.c](https://github.com/code50/78098610/blob/main/Week1_code/agree.c#L21)
 
 `''` single quotes for single characters `char`
 
@@ -447,7 +447,7 @@ Example: [agree.c](agree.c)
 
 ## Loops
 
-Example: [meow.c](meow.c)
+Example: [meow.c](https://github.com/code50/78098610/blob/main/Week1_code/meow.c#L9)
 
 Repeat "forever"
 ```c
@@ -484,7 +484,7 @@ for (int i = 0; i < 3, i++)
 }
 ```
 
-Let's update: [meow.c](meow.c)
+Let's update: [meow.c](https://github.com/code50/78098610/blob/main/Week1_code/meow.c#L9)
 
 What happens if we make the function `meow()` and then move it to the bottom of the code?
 ```c
@@ -538,7 +538,7 @@ void meow(void)
 ```
 
 ## Inputs
-Example: [discount.c](discount.c)
+Example: [discount.c](https://github.com/code50/78098610/blob/main/Week1_code/discount.c#L17)
 
 ```c
 #include <cs50.h>
@@ -561,13 +561,13 @@ float discount(float price, int percentage)
 ```
 
 ## Validating User Input
-Example: [mario.c](mario.c)
+Example: [mario.c](https://github.com/code50/78098610/blob/main/Week1_code/mario.c#L13)
 
 ## Floating Point Imprecision
 The inability for computers to precisely represent values
 
 
-Example: [calculator.c](calculator.c)
+Example: [calculator.c](https://github.com/code50/78098610/blob/main/Week1_code/calculator.c#L17)
 
 ```c
 #include <cs50.h>
@@ -663,7 +663,7 @@ Y2K is a famous Integer Overflow event. Most PCs had only 2 bits for storing yea
 2000 -> 00 \
 this would be the same as the epoch of PCs keeping track of dates (1970)
 
-Example: [pennies.c](pennies.c)
+Example: [pennies.c](https://github.com/code50/78098610/blob/main/Week1_code/pennies.c#L10)
 
 ```c
 #include <cs50.h>
@@ -1130,3 +1130,17 @@ mv <source> <destination>
 - `touch`
 - `diff`
 - `telnet`
+
+# PSETS
+Task 1
+- [hello](https://github.com/code50/78098610/blob/main/pset1/hello)
+
+Task 2
+- Standard: [mario-less](https://github.com/code50/78098610/blob/main/pset1/mario-less)
+
+- Challenge: [mario-more](https://github.com/code50/78098610/blob/main/pset1/mario-more)
+
+Task 3
+- Standard: [cash](https://github.com/code50/78098610/blob/main/pset1/cash)
+
+- Challenge: [credit](https://github.com/code50/78098610/blob/main/pset1/credit/credit.c#L27)
