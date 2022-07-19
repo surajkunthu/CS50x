@@ -90,7 +90,7 @@ int main(void)
     printf("hello, %s\n", name);
 }
 ```
-2. Compiling - Takes source code and converts into [**Assembly Language**](https://en.wikipedia.org/wiki/Assembly_language)
+2. Compiling - Takes source code a  nd converts into [**Assembly Language**](https://en.wikipedia.org/wiki/Assembly_language)
 3. Assembling - Takes assembly code and converts into [Machine Code (binary)](https://en.wikipedia.org/wiki/Machine_code)
 4. Linking - Links all the 1s and 0s together into one file, `hello.c`
 
@@ -182,4 +182,148 @@ Instead of indexing, we could use a `for loop`
 ```
 
 ### Array of Characters
-1:01:17
+
+[hi.c](/Week%202%20Arrays/hi.c)
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    char c1 = 'H';
+    char c2 = 'I';
+    char c3 = '!';
+
+    printf("%c%c %c\n", c1, c2, c3);
+    printf("%i %i %i\n", c1, c2, c3);                     // IMPLICIT: ASCII values
+    printf("%i %i %i\n", (int) c1, (int) c2, (int) c3);   // EXPLICIT: take the variable and convert to an int
+}
+```
+```bash
+Week2_code/ $ make hi
+Week2_code/ $ ./hi
+HI !
+72 73 33
+72 73 33
+```
+When we do this:
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string s = "HI!";
+    printf("%s\n", s);
+}          
+```
+
+A string is just an array of characters
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string s = "HI!";
+    printf("%i %i %i \n", s[0], s[1], s[2]);
+}
+```
+
+```bash
+Week2_code/ $ ./hi
+72 73 33 
+```
+
+The `string` "HI!" is an array of 3 characters (3-bytes).
+
+If we want to delineate where one string ends and another string begins, we need a **special** denotation.
+
+We use a **_nul_** value: `\0` : eight 0-bits 
+
+H [1] I [2] ! [3] \0 [4]
+
+>So "HI!" is actaully 4-bytes, not 3.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string s = "HI!";
+    printf("%i %i %i %i\n", s[0], s[1], s[2], s[3]);
+}
+```
+
+```bash
+Week2_code/ $ make hi
+Week2_code/ $ ./hi
+72 73 33 0
+```
+
+[length.c](/Week%202%20Arrays/length.c)
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string name = get_string("Name: ");
+
+    int i = 0;
+    while (name[i] != '\0')
+    {
+        i++;
+    }
+    printf("%i\n", i)
+}
+```
+With this we can determine the length of a string.
+```bash
+Week2_code/ $ ./length
+Name: HI!
+3
+Week2_code/ $ ./length
+Name: BYE!
+4
+```
+
+Let's write our own function and modularize the code:
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int string_length(string s);
+
+int main(void)
+{
+    string name = get_string("Name: ");
+    int length = string_length(name);
+    printf("%i\n", length);
+}
+
+int string_length(string s)
+{
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        i++;
+    }
+    return i;
+}
+```
+### `strlen`
+```c
+#include <string.h>
+```
+Comes with C and can calculate the length of a string.
+
+# Manual pages
+[CS50 Manual Pages](https://manual.cs50.io)
+
+Documentation created by developers to help with getting rid of low-level testing/debugging as well as information
+
+1:29:25
+
+
+
