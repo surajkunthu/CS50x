@@ -143,7 +143,7 @@ We get an error. It is a float result but int variables. So we need to address t
 
 There is a way to store mulitple data of the same type in memory.
 
-## Arrays
+# Arrays
 ```c
 int scores[3];
 ```
@@ -181,11 +181,11 @@ Instead of indexing, we could use a `for loop`
     }
 ```
 
-### Array of Characters
+## Array of Characters
 
 [hi.c](/Week%202%20Arrays/hi.c)
 ```c
-#include <stdio.h>
+#include <stdio.h>x
 
 int main(void)
 {
@@ -261,6 +261,7 @@ Week2_code/ $ ./hi
 72 73 33 0
 ```
 
+## `length.c`
 [length.c](/Week%202%20Arrays/length.c)
 ```c
 #include <cs50.h>
@@ -318,12 +319,227 @@ int string_length(string s)
 ```
 Comes with C and can calculate the length of a string.
 
-# Manual pages
+## Manual pages
 [CS50 Manual Pages](https://manual.cs50.io)
 
 Documentation created by developers to help with getting rid of low-level testing/debugging as well as information
 
-1:29:25
+## `string.c`
+[string.c](/Week%202%20Arrays/string.c)
+
+How do we output a `string` in C without using `%s`?
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("Input:  ");
+    printf("Output: ");
+    for (int i = 0; i < strlen(s); i++)
+    {
+        printf("%c", s[i]);
+    }
+    printf("\n");
+}
+```
+This code is _correct_ but is NOT well designed.
+
+`strlen(s)` will ALWAYS be 3 for `HI!`, the string will never change in length 
+
+How can I remember the answer to `strlen` without calling the function everytime
 
 
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
 
+int main(void)
+{
+    string s = get_string("Input:  ");
+    printf("Output: ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        printf("%c", s[i]);
+    }
+    printf("\n");
+}
+```
+## `uppercase.c`
+[uppercase.c](/Week%202%20Arrays/uppercase.c)
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("Before: ");
+    printf("After: ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        if (s[i] >= 'a' && s[i] <= 'z')
+        {
+            printf("%c", s[i] - 32);
+        }
+        else
+        {
+            printf("%c", s[i]);
+        }
+    }
+    printf("\n");
+}
+```
+`islower(s[i])` is asking if the `int` value is != 0
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("Before: ");
+    printf("After: ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        if (islower(s[i]))
+        {
+            printf("%c", s[i] - 32);
+        }
+        else
+        {
+            printf("%c", s[i]);
+        }
+    }
+    printf("\n");
+}
+```
+`toupper()` exists to perform the function for us. It already can determine if the string is uppercase or lowercase.
+```c
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    string s = get_string("Before: ");
+    printf("After: ");
+    for (int i = 0, n = strlen(s); i < n; i++)
+    {
+        printf("%c", toupper(s[i]));
+    }
+    printf("\n");
+}
+```
+# command-line arguments
+```c
+int main(void)
+{
+    ...
+}
+```
+What does `void` mean?
+
+`main()` is the way to specify whether or not our program will take command line arguments. We say `void` to prevent the program from taking command line arguments.
+
+## argc, argv
+With these two commands, we can take command line arguments:
+
+-`argc`: argument count - how many words were input
+
+-`argv`: argument vector - array of all the words that was input
+
+```c
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    ...
+}
+```
+
+[argv.c](argv.c)
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    printf("hello, %s\n", argv[0]);
+}
+```
+```bash
+Week2_code/ $ ./argv Suraj
+hello, ./argv
+```
+`argv`[0] returns the string prior to input
+
+let's change `argv`[0] to [1]
+```c
+printf("hello, %s\n", argv[1]);
+```
+```bash
+Week2_code/ $ ./argv
+hello, (null)
+```
+How do we prevent the `(null)`? We need some sort of error handling.
+
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+        if (argc == 2)  // checks the count of the input
+        {
+            printf("hello, %s\n", argv[1]);
+        }
+        else        // "error" handling
+        {
+            printf("hello, world\n");
+        }
+}
+```
+```bash
+Week2_code/ $ make argv
+Week2_code/ $ ./argv
+hello, world
+Week2_code/ $ ./argv Suraj
+hello, Suraj
+```
+
+## Exit status
+[exit.c](exit.c)
+```c
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, string argv[])
+{
+    if (argc != 2)
+    {
+        printf("Missing command-line argument\n");
+        return 1;       // clue to the system that something went wrong, since return isn't 0
+                        // this will exit out the code immediately since return is NOT 0
+    }
+    printf("hello, %s\n", argv[1]);
+    return 0;           // this is good practice if we have other return values
+}
+```
+
+# Functions
+
+# Variables and Scope
+
+# Debugging ("Step through")
+
+# Debugging ("Step into")
+ 
+ # Arrays
+
+ # Command Line Arguments
