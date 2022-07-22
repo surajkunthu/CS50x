@@ -533,6 +533,70 @@ int main(int argc, string argv[])
 ```
 
 # Functions
+Functions, procedures, methods, or subroutines
+
+*Function* - a _black box_ with a set of 0+ inputs and 1 output.
+
+`function(a, b, c)`
+
+We call is a _black box_ because functions we don't write ourselves, we tend not to know the underlying implementation.
+
+## Why use Functions?
+- Organization
+  - Break up complicated problem into subparts
+- Simplification
+  - easier to design, implement, and debug
+- Reusability
+  - can be recycled
+
+## Function Declarations
+- should always go atop your code BEFORE `main()`
+
+```c
+return-type name(argument-list);
+```
+- `return-type` - what kind of variable the function will output
+- `name` - what to call the function
+- `argument-list` - comma-separated set of inputs, with types and names
+
+example:
+```c
+int add_two_ints(int a, int b);
+```
+**try example:**
+Function to multiply two floats.
+```c
+float mult_two_reals(float x, float y); // function declaration
+
+float mult_two_reals(float x, float y)  // function definition
+{
+    float product = x * y;
+    return product;
+}
+```
+**try example:**
+Define `add_two_ints()`
+```c
+int add_two_ints(int a, int b);
+
+int add_two_ints(int a, int b)
+{
+    return a + b;
+}
+```
+
+[adder-1.c](adder-1.c)
+
+Sometimes functions can take NO inputs. In that case we declare the function as having a `void` argument list.
+
+Functions sometimes do not have an output. We declare the function as having a `void` argument list as well.
+
+**Practice Problem**
+- Write a function called `valid_triangle` that takes three real numbers representing the lengths of the three sides of a triangle as its arguments, and outputs either `true` or `false`, depending on whether those three lengths are capable of making a triangle.
+- Triangle may only have sides with positive length
+- The sum of the lengths of any two sides of the triangle must be greater than the length of the third side.
+[triangle.c](triangle.c)
+
 
 # Variables and Scope
 
