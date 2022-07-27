@@ -597,13 +597,43 @@ Functions sometimes do not have an output. We declare the function as having a `
 - The sum of the lengths of any two sides of the triangle must be greater than the length of the third side.
 [triangle.c](triangle.c)
 
-
 # Variables and Scope
+- *Scope*: characteristic of a variable that defines from which functions that variable may be accessed
+  - Local: can only be accessed within the functions in which they are created
+  - Global: can be accessed by any function in the program
+```c
+int main(void)
+{
+    int result = triple(5);
+} 
+int triple(int x)
+{
+    return x * 3;
+}
+```
+`x` is *local* to `triple()`. 
 
-# Debugging ("Step through")
+`result` is *local* to `main()`
 
-# Debugging ("Step into")
- 
- # Arrays
+```c
+#include <stdio.h>
 
- # Command Line Arguments
+float global = 0.5050;
+
+int main(void)
+{
+    triple();
+    printf("%f\n", global);
+}
+void triple(void)
+{
+    global *=3;
+}
+```
+Local variables are **passed by value**, the **callee** receives a copy of the passed variable. NOT the variable itself.
+
+Variable in the **caller** is unchanged unless overwritten.
+
+# Arrays
+
+# Command Line Arguments
