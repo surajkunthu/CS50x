@@ -635,5 +635,137 @@ Local variables are **passed by value**, the **callee** receives a copy of the p
 Variable in the **caller** is unchanged unless overwritten.
 
 # Arrays
+- Fundamental **data structure**
+- We use arrays to hold values of the same type at contigous memory locations
+- Arrays are partitioned into small, identically-sized blcoks of space called **elements**
+- Each of which can store a certain amount of **data**
+- all of the same data type such as **int** or **char**
+- and which can be accessed directly by an **index**
 
+In C,
+- elemernts of an array are indexed starting from 0
+- If an array has _n_ elements, the first element is located at index 0. The last element is located at index (_n_ - 1)
+- C is bery lenient. It will not prevent you from going "out of bounds" of your array -- segmentation fault
+
+Array declarations
+```c
+type name[size];
+```
+- type: what kind of variable
+- name: what you want to call the array
+- size: how many elements you want to contain
+
+example:
+```c
+int student_grades[40];
+double menu_prices[8];
+```
+
+## Data-types
+- if you think of a single element of an array of type `data-type` the same as you would any other variable of type `data-type` (which, effectively, it is) then all the familiar operations makes sense.
+
+- when declaring and initializing an array simultaneously, there is a special syntax:
+
+```c
+// instantation syntax
+bool truthtable[] = { false, true, true };
+
+// individual element syntax
+bool truthtable[3];
+truthtable[0] = false;
+truthtable[1] = true;
+truthtable[2] = true;
+```
+
+Arrays can consist of more than a single dimension.
+```c
+bool battleship[10][10];
+```
+- can think of this as a 10x10 grid of cells
+  - in memory though, it's really just a 100-element one-dimensional array
+  - Multi-dimensional arrays are great **abstractions** to help visualize game boards or other complex representations
+- we can treat individuals elements of arrays as variables, we cannot treat entire arrays themselves as variables
+- We CANNOT assign one array to another using the assignment operator. NOT legal C
+- Instead, we must use a loop to copy over the elements one at a time
+
+```c
+int foo[5] = { 1, 2, 3, 4, 5 };
+int bar[5];.
+bar = foo; //THIS WILL NOT WORK
+
+for(int j = 0; j < 5l j++)
+{
+    bar[j] = foo[j]
+}
+```
+
+- Most variables in C are **passed by value** in function calls 
+- Arrays DO NOT follow this rule, they are **passed by reference**
+- The callee receives the actual array, NOT a copy of it. (not worth it for a function to receive due to "bulkiness" of arrays)
+- What does it mean when the callee manipulates elements of the array?
+
+```c
+void set_array(int array[4]);
+void set_int(int x);
+
+int main(void)
+{
+    int a = 10;
+    int b[4] = { 0, 1, 2, 3 };
+    set_int(a);
+    set_array(b);
+    printf("%d %d\n", a, b[0]);
+}
+
+void set_array(int array[4])
+{
+    array[0] = 22;
+}
+
+void set_int(int x)
+{
+    x = 22;
+}
+```
+What gets printed here at the end of main?
+```bash
+10 22
+```
 # Command Line Arguments
+Most of our programs have started:
+```c
+int main(void){}
+```
+- Since we've been collecting user input through in-program prompts, we haven't needed to modify this declaration of `main()`
+- If we want the user to provide data before program starts running (at run-time) instead of while the program is running
+- **command-line arguments**
+
+```c
+int main(int argc, string argv[]){}
+```
+## `argc`
+Argument Count
+`int`-type variable will store the **number** of command-line arguments the user typed when the program was executed.
+
+| command | argc |
+| --- | --- |
+| ./greedy | 1 |
+| ./greedy 1024 cs50 | 3 |
+
+(counting the number of "arguments" of items with blanks)
+
+## `argv`
+Argument vector
+- array of **strings** stores, one string per element
+- first element of `argv` is always found at `argv[0]`
+- the last element of `argv` is always found at `argv[argc-1]`
+- example:
+```bash
+./greedy 1024 cs50
+```
+| argv indices | argv contents |
+| --- | --- |
+| argv[0] | "./greedy" |
+| argv[1] | "1024" |
+| argv[2] | "cs50" |
+| argv[3] | ??? - possible segmentation fault |
