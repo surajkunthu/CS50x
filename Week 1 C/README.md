@@ -1132,6 +1132,8 @@ mv <source> <destination>
 - `telnet`
 
 # PSETS
+[Problem Set 1](https://cs50.harvard.edu/x/2022/psets/1/)
+
 Task 1
 - [hello](https://github.com/code50/78098610/blob/main/pset1/hello)
 

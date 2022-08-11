@@ -769,3 +769,16 @@ Argument vector
 | argv[1] | "1024" |
 | argv[2] | "cs50" |
 | argv[3] | ??? - possible segmentation fault |
+
+# PSETS
+[Lab](https://cs50.harvard.edu/x/2022/labs/2/)
+- [scrabble](https://github.com/code50/78098610/blob/main/Week2_code/Lab2/scrabble/scrabble.c)
+
+[Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/)
+Task 1
+- [readability](https://github.com/code50/78098610/blob/main/pset2/readability/readability.c)
+
+Task 2
+- Standard: [caesar](https://github.com/code50/78098610/blob/main/pset2/caesar/caesar.c)
+
+- Challenge: [substitution](https://github.com/code50/78098610/blob/main/pset2/substitution/substitution.c)

@@ -11,8 +11,8 @@ Syllabus
  | --- | --- | --- | --- |
  | [Week 0: Scratch](/Week%200%20Scratch/README.md) | [Problem Set 0](https://cs50.harvard.edu/x/2022/psets/0/) | [x] | 06/20/2022 |
  | [Week 1: C](/Week%201%20C/README.md) | [Problem Set 1](https://cs50.harvard.edu/x/2022/psets/1/) | [x]| 07/10/2022 |
- | [Week 2: Arrays](/Week%202%20Arrays/README.md) | [Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/) |  |  |
- | [Week 3: Algorithms]() | Problem Set 3 |  | |
+ | [Week 2: Arrays](/Week%202%20Arrays/README.md) | [Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/) | [x] | 08/10/2022 |
+ | [Week 3: Algorithms]() | [Problem Set 3](https://cs50.harvard.edu/x/2022/psets/3/) |  | |
  | [Week 4: Memory]() | Problem Set 4 | |  |
  | [Week 5: Data Structures]() | Problem Set 5 |  |  |
  | [Week 6: Python]() | Problem Set 6 | | |
