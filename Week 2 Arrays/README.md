@@ -775,6 +775,7 @@ Argument vector
 - [scrabble](https://github.com/code50/78098610/blob/main/Week2_code/Lab2/scrabble/scrabble.c)
 
 [Problem Set 2](https://cs50.harvard.edu/x/2022/psets/2/)
+
 Task 1
 - [readability](https://github.com/code50/78098610/blob/main/pset2/readability/readability.c)
 
