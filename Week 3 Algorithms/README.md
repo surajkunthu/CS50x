@@ -1,5 +1,16 @@
 # Week 3: Algorithms
 
+Recall the phone-book tearing algorithms
+
+# Searching
+## Linear Search
+
+
+
+## Binary Search
+
+## Running Time
+
 
 
 
