@@ -156,9 +156,7 @@ Since the biggest influencer is $n^2$
 
 $O(n^2)$: Upper Bound
 
-$\Omega(n^2)$: Lower Bound
-
-> So bubble sort has: $\Theta(n^2)$
+$\Omega(n)$: Lower Bound
 
 ### Recursion
 
@@ -217,6 +215,15 @@ $\Omega(n \log{n})$: Lower bound
 
 > $\Theta(n \log{n})$
 
+
+### Sorting Algorithms Run time
+
+| Algorithm | Upper Bound | Lower Bound |
+| --- | --- | --- |
+| Selection Sort | $O(n^2)$ | $\Omega(n^2)$ |
+| Bubble Sort | $O(n^2)$ |$\Omega(n)$|
+| Merge Sort | $O(n \log{n})$ | $\Omega(n \log{n})$ |
+
 # PSETS
 [Optional Practice Problems](https://cs50.harvard.edu/x/2023/problems/3/)
 
@@ -225,7 +232,7 @@ $\Omega(n \log{n})$: Lower bound
 [Problem Set 3](https://cs50.harvard.edu/x/2023/psets/3/)
 
 Task 1:
- - [Plurality](https://cs50.harvard.edu/x/2023/psets/3/plurality/)
+- [Plurality](https://cs50.harvard.edu/x/2023/psets/3/plurality/)
 
 Task 2:
 - Standard: [Runoff](https://cs50.harvard.edu/x/2023/psets/3/runoff/)
