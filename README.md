@@ -3,6 +3,8 @@ Harvard CS50: Intensive Introduction to Computer Science
 
 Prof. David Malan
 
+[Link to Code50 Repo](https://github.com/code50/78098610)
+
 Courses:
 ----
 
